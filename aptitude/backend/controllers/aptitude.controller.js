@@ -18,8 +18,13 @@ const getLearnContent = (req, res) => {
   try {
     const { topicId } = req.params;
     const content = ragService.getLearningContent(topicId);
-    // Generate 2 example questions at easy difficulty for the learning panel
-    const examples = generateQuestions(topicId, 'easy', 2);
+    const exampleDifficulty = ['easy', 'medium', 'hard'].find(
+      (difficulty) => ragService.getTemplatesByDifficulty(topicId, difficulty).length > 0
+    );
+    if (!exampleDifficulty) {
+      throw new Error(`No question templates available for topic "${topicId}".`);
+    }
+    const examples = generateQuestions(topicId, exampleDifficulty, 2);
     res.json({ success: true, data: { ...content, examples } });
   } catch (err) {
     res.status(404).json({ success: false, message: err.message });

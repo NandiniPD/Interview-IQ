@@ -105,7 +105,7 @@ export default function PracticeMode() {
           <h3 className="condensed" style={{ letterSpacing: '2px', marginBottom: '0.5rem', color: 'var(--danger)' }}>Connection Error</h3>
           <p className="muted" style={{ fontSize: '0.85rem', marginBottom: '0.5rem' }}>{error}</p>
           <p className="muted" style={{ fontSize: '0.78rem', marginBottom: '1rem' }}>
-            Make sure the backend is running on <code style={{ color: 'var(--orange)' }}>localhost:5000</code>
+            Make sure the Aptitude backend is running on <code style={{ color: 'var(--orange)' }}>localhost:5001</code>
           </p>
           <button className="btn btn-outline btn-sm" onClick={loadQuestion}>Retry</button>
         </div>

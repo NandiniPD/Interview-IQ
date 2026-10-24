@@ -1,5 +1,5 @@
 // src/utils/api.js
-const BASE = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/aptitude';
+const BASE = process.env.REACT_APP_API_URL || 'http://localhost:5001/api/aptitude';
 
 const fetchJSON = async (url, options = {}) => {
   const res = await fetch(url, {
